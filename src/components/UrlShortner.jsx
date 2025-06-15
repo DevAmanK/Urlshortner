@@ -2,19 +2,19 @@ import React, { useState } from "react";
 
 const UrlShortner = () => {
   const [inputValue, setInputValue] = useState("");
-  const [shortUrl, setShortenedUrl] = useState("");
+  const [shortenedUrled, setshortenedUrledUrl] = useState("");
 
   function createShortYouTubeUrl(fullUrl) {
     const videoId = fullUrl.split("v=")[1]?.split("&")[0];
-    const shortUrl = `https://youtu.be/${videoId}`;
-    setShortenedUrl(shortUrl);
+    const shortenedUrled = `https://youtu.be/${videoId}`;
+    setshortenedUrledUrl(shortenedUrled);
   }
 
   let handleInput = (e) => {
     setInputValue(e.target.value);
   };
 
-  let shorten = (url) => {
+  let shortenedUrl = (url) => {
     createShortYouTubeUrl(url);
   };
 
@@ -39,22 +39,22 @@ const UrlShortner = () => {
             value={inputValue}
           />
           <button
-            onClick={() => shorten(inputValue)}
+            onClick={() => shortenedUrl(inputValue)}
             className="bg-blue-600 hover:bg-blue-700 text-white w-full px-4 py-2 text-lg rounded"
           >
             Short Url
           </button>
         </form>
-        {shortUrl && (
+        {shortenedUrled && (
           <div>
-            <p className="mt-5 text-xl text-orange-600">Shortened URL:</p>
+            <p className="mt-5 text-xl text-orange-600">shortenedUrled URL:</p>
             <a
-              href={shortUrl}
+              href={shortenedUrled}
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 font-medium underline break-words"
             >
-              {shortUrl}
+              {shortenedUrled}
             </a>
           </div>
         )}
